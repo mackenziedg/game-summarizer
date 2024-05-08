@@ -1,18 +1,17 @@
 <script>
 </script>
 
-<div class="pl-8 pr-8 mb-5">
-
+<div class="pl-8 pr-8 mb-20">
   <div class="float-left">
     <h1 class="text-3xl"> Team 1 </h1>
     <h3 class="text-xl font-bold text-center"> 12 </h3>
-    <img />
+    <img src="./src/lib/nyy_logo.jpg" width=60 class="m-auto" />
   </div>
 
   <div class="float-right">
     <h1 class="text-3xl"> Team 2 </h1>
     <h3 class="text-xl font-bold text-center"> 7 </h3>
-    <img />
+    <img src="./src/lib/nyy_logo.jpg" width=60 class="m-auto" />
   </div>
 
   <table class="m-auto text-center">
