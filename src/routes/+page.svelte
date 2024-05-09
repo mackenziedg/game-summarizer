@@ -20,7 +20,7 @@ const yesterday = date.toLocaleString().split(", ")[0];
     </h1>
   </header>
 
-  <div class="flex mt-4">
+  <div class="mt-4">
 
     {#await data}
       {:then d}
