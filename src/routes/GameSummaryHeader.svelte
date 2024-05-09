@@ -1,62 +1,61 @@
-<script>
+<script lang="ts">
+  export let summaryHeader;
 </script>
 
 <div class="pl-8 pr-8 mb-4 flex-col">
-  <div>
-    <div class="float-left">
+  <div class="flex justify-evenly">
+    <div>
       <!-- <img src="./src/lib/nyy_logo.jpg" alt="Team logo" width=60 class="m-auto" /> -->
-      <h1 class="text-3xl"> Team 1 </h1>
-      <h3 class="text-xl font-bold text-center"> 12 </h3>
+      {#await summaryHeader}
+      {:then header}
+      <h1 class="text-2xl text-left"> 
+	{header.away_team}
+      </h1>
+      <h3 class="text-xl font-bold text-center"> 
+	{header.box_score[1][header.box_score[1].length - 3]}
+     </h3>
+    {/await}
     </div>
 
-    <div class="float-right">
+    <div>
       <!-- <img src="./src/lib/nyy_logo.jpg" alt="Team logo" width=60 class="m-auto" /> -->
-      <h1 class="text-3xl"> Team 2 </h1>
-      <h3 class="text-xl font-bold text-center"> 7 </h3>
+      {#await summaryHeader}
+      {:then header}
+      <h1 class="text-2xl text-right">
+	{header.home_team}
+      </h1>
+      <h3 class="text-xl font-bold text-center"> 
+	  {header.box_score[2][header.box_score[2].length - 3]}
+      </h3>
+      {/await}
     </div>
   </div>
 
-  <table class="m-auto text-center">
+  {#await summaryHeader}
+  {:then header}
+  <table class="m-auto text-center mt-4">
     <thead>
       <tr>
-	<th class="min-w-20 text-left">Team</th>
-	<th class="min-w-6">1</th>
-	<th class="min-w-6">2</th>
-	<th class="min-w-6">3</th>
-	<th class="min-w-6">4</th>
-	<th class="min-w-6">5</th>
-	<th class="min-w-6">6</th>
-	<th class="min-w-6">7</th>
-	<th class="min-w-6">8</th>
-	<th class="min-w-6">9</th>
+	  <th></th>
+	{#each header.box_score[0].slice(1) as cell}
+	  <th class="min-w-7"> {cell} </th>
+	{/each}
       </tr>
     </thead>
+
     <tbody>
       <tr>
-	<td class="text-left">Team 1</td>
-	<td>0</td>
-	<td>2</td>
-	<td>0</td>
-	<td>0</td>
-	<td>0</td>
-	<td>10</td>
-	<td>0</td>
-	<td>0</td>
-	<td>1</td>
+	{#each header.box_score[1] as cell}
+	  <td> {cell} </td>
+	{/each}
       </tr>
+
       <tr>
-	<td class="text-left">Team 2</td>
-	<td>1</td>
-	<td>0</td>
-	<td>0</td>
-	<td>11</td>
-	<td>0</td>
-	<td>0</td>
-	<td>0</td>
-	<td>0</td>
-	<td>1</td>
-      </tr>
+	{#each header.box_score[2] as cell}
+	  <td> {cell} </td>
+	{/each}
     </tbody>
   </table>
+  {/await}
 
 </div>

@@ -48,8 +48,18 @@ import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ params }) => {
   const data = await getFileList("");
-  const mostRecentDate = data.Contents.slice(2).map((v) => {
-    return v.Key.split("/")[1].split("-")[0];
-  }).reduce((max, c) => c > max ? c : max);
-  return {summaries: data.Contents.filter((v) => v.Key.includes(mostRecentDate)).map((v) => loadFromS3(v.Key))};
+  const mostRecentDate = data.Contents.slice(2).map((v) => v.Key.split("/")[1].split("-")[0]).reduce((max, c) => c > max ? c : max);
+  return {summaries: data.Contents.filter((v) => v.Key.includes(mostRecentDate)).map((v) => [parseInputFile(loadFromS3(v.Key.replace("output", "input"))), loadFromS3(v.Key)])}
+};
+
+const parseInputFile = async (file: string) => {
+  let f = await file;
+  const home_team = f.split("\n")[1].split(": ")[1];
+  const away_team = f.split("\n")[3].split(": ")[1];
+  const box_score = f.split("\n").slice(7, 10).map((l) => l.split(","));
+  return {
+    home_team: home_team,
+    away_team: away_team,
+    box_score: box_score,
+  };
 };
