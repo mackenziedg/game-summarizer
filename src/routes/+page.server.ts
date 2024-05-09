@@ -34,7 +34,7 @@ async function loadFromS3(path: string): Promise<JSON> {
   }
 }
 
-export async function getFileList(): Promise<Array<JSON>> {
+async function getFileList(): Promise<Array<JSON>> {
   const command = new ListObjectsV2Command({
     Bucket: S3_BUCKET_NAME,
     MaxKeys: 100, // If every team plays a triple-header we still won't have this many keys
