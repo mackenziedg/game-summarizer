@@ -1,17 +1,15 @@
 <script lang="ts">
-  import GameSummary from "./GameSummary.svelte";
-  import type { PageServerData } from './$types';
-  import { onMount } from "svelte";
+import GameSummary from "./GameSummary.svelte";
+import type { PageServerData } from './$types';
 
-  export let data: PageServerData;
+export let data: PageServerData;
 
-  let date = new Date();
-  date.setDate(date.getDate() - 1);
-  const yesterday = date.toLocaleString().split(", ")[0];
+let date = new Date();
+date.setDate(date.getDate() - 1);
+const yesterday = date.toLocaleString().split(", ")[0];
 </script>
 
 <div class="flex-col p-10">
-
   <header>
     <a href="/about" class="float-right clear-both hover:text-orange-300">About</a>
     <h1 class="text-center text-3xl font-bold">
@@ -19,10 +17,16 @@
     </h1>
   </header>
 
-  <div class="flex overflow-x-auto justify-left mt-8">
-    {#each data.summaries as summary}
-      <GameSummary summaryHeader={summary[0]} summaryBody={summary[1]} />
-    {/each}
-  </div>
+  {#await data}
+    {:then d}
+    <div class="flex overflow-x-auto justify-left mt-8">
+      {#each d.summaries as summary}
+        {#await summary}
+        {:then s}
+          <GameSummary summary={s} />
+        {/await}
+      {/each}
+    </div>
+  {/await}
 </div>
 

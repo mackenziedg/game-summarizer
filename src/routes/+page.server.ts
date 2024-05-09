@@ -20,19 +20,22 @@ async function loadFromS3(path: string): Promise<JSON> {
     Key: path,
   });
   try {
-    const data = await s3.send(getCommand);
-    const str = await data.Body.transformToString();
-    return str;
+    const response = await s3.send(getCommand);
+    const jsonString = await response.Body.transformToString();
+    const data = JSON.parse(jsonString ?? "{}");
+    return data;
   } catch (error) {
     console.error("S3 download error - ", error);
     return <JSON>(error);
   }
 }
 
-export async function getFileList(path: string): Promise<Array<JSON>> {
+export async function getFileList(): Promise<Array<JSON>> {
   const command = new ListObjectsV2Command({
     Bucket: S3_BUCKET_NAME,
-    Prefix: `llm-outputs/2`,
+    MaxKeys: 100, // If every team plays a triple-header we still won't have this many keys
+    Prefix: "llm-outputs/",
+    Type: "json",
   });
 
   try {
@@ -47,19 +50,14 @@ export async function getFileList(path: string): Promise<Array<JSON>> {
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ params }) => {
-  const data = await getFileList("");
-  const mostRecentDate = data.Contents.slice(2).map((v) => v.Key.split("/")[1].split("-")[0]).reduce((max, c) => c > max ? c : max);
-  return {summaries: data.Contents.filter((v) => v.Key.includes(mostRecentDate)).map((v) => [parseInputFile(loadFromS3(v.Key.replace("output", "input"))), loadFromS3(v.Key)])}
-};
-
-const parseInputFile = async (file: string) => {
-  let f = await file;
-  const home_team = f.split("\n")[1].split(": ")[1];
-  const away_team = f.split("\n")[3].split(": ")[1];
-  const box_score = f.split("\n").slice(7, 10).map((l) => l.split(","));
+  const data = await getFileList();
+  const mostRecentDate = data.Contents.slice(2)
+    .map((v) => v.Key.toString().split("/")[1].split("-")[0])
+    .reduce((max, c) => c > max ? c : max);
   return {
-    home_team: home_team,
-    away_team: away_team,
-    box_score: box_score,
-  };
+    summaries: data.Contents.filter(
+      (v) => v.Key
+        .includes(mostRecentDate))
+        .map(async (v) => await loadFromS3(v.Key))
+  }
 };

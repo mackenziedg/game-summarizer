@@ -1,9 +1,8 @@
 <script lang="ts">
-  import GameSummaryHeader from "./GameSummaryHeader.svelte";
-  import GameSummaryBody from "./GameSummaryBody.svelte";
+import GameSummaryHeader from "./GameSummaryHeader.svelte";
+import GameSummaryBody from "./GameSummaryBody.svelte";
 
-  export let summaryHeader;
-  export let summaryBody;
+export let summary;
 </script>
 
 <div class="
@@ -14,6 +13,6 @@
   bg-slate-200
   dark:bg-zinc-800"
 >
-  <GameSummaryHeader summaryHeader={summaryHeader} />
-  <GameSummaryBody summaryBody={summaryBody} />
+  <GameSummaryHeader summary={summary} />
+  <GameSummaryBody summary={summary} />
 </div>
