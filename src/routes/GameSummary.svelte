@@ -11,8 +11,8 @@
   pt-4 pb-8
   ml-10 mr-10
   rounded-lg
-  bg-slate-200
-  dark:bg-zinc-800"
+  bg-zinc-200
+  dark:bg-zinc-700"
 >
   <GameSummaryHeader {summary} />
   <GameSummaryBody {summary} />
