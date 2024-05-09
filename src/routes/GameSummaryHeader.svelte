@@ -1,17 +1,19 @@
 <script>
 </script>
 
-<div class="pl-8 pr-8 mb-20">
-  <div class="float-left">
-    <h1 class="text-3xl"> Team 1 </h1>
-    <h3 class="text-xl font-bold text-center"> 12 </h3>
-    <img src="./src/lib/nyy_logo.jpg" width=60 class="m-auto" />
-  </div>
+<div class="pl-8 pr-8 mb-4 flex-col">
+  <div>
+    <div class="float-left">
+      <!-- <img src="./src/lib/nyy_logo.jpg" alt="Team logo" width=60 class="m-auto" /> -->
+      <h1 class="text-3xl"> Team 1 </h1>
+      <h3 class="text-xl font-bold text-center"> 12 </h3>
+    </div>
 
-  <div class="float-right">
-    <h1 class="text-3xl"> Team 2 </h1>
-    <h3 class="text-xl font-bold text-center"> 7 </h3>
-    <img src="./src/lib/nyy_logo.jpg" width=60 class="m-auto" />
+    <div class="float-right">
+      <!-- <img src="./src/lib/nyy_logo.jpg" alt="Team logo" width=60 class="m-auto" /> -->
+      <h1 class="text-3xl"> Team 2 </h1>
+      <h3 class="text-xl font-bold text-center"> 7 </h3>
+    </div>
   </div>
 
   <table class="m-auto text-center">
