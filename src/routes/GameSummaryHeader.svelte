@@ -6,7 +6,7 @@
   <div class="flex justify-evenly">
     <div id="away-team-logo">
       <img
-        src="./src/lib/logos/{summary.away_team_name}.png"
+        src="/logos/{summary.away_team_name}.png"
         alt="{summary.away_team_city} {summary.away_team_name} logo"
         class="float-left max-h-24 h-auto max-w-24 w-auto align-middle"
       />
@@ -24,7 +24,6 @@
     </div>
 
     <div id="home-team-info">
-      <!-- <img src="./src/lib/nyy_logo.jpg" alt="Team logo" width=60 class="m-auto" /> -->
       <h3 class="text-md text-center">
         {summary.home_team_city}
       </h3>
@@ -37,7 +36,7 @@
     </div>
     <div id="home-team-logo">
       <img
-        src="./src/lib/logos/{summary.home_team_name}.png"
+        src="/logos/{summary.home_team_name}.png"
         alt="{summary.home_team_city} {summary.home_team_name} logo"
         class="float-left max-h-24 h-auto max-w-24 w-auto align-middle"
       />
