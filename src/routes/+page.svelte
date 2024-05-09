@@ -19,8 +19,10 @@
     </h1>
   </header>
 
-  {#each data.summaries as summary}
-    <GameSummary summaryHeader={summary[0]} summaryBody={summary[1]} />
-  {/each}
+  <div class="flex overflow-x-auto justify-left mt-8">
+    {#each data.summaries as summary}
+      <GameSummary summaryHeader={summary[0]} summaryBody={summary[1]} />
+    {/each}
+  </div>
 </div>
 

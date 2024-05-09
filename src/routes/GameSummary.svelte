@@ -7,10 +7,10 @@
 </script>
 
 <div class="
-  m-auto pl-4 pr-4 pt-8 pb-8
-  mt-8 mb-8
+  min-w-fit
+  pt-4 pb-8
+  ml-10 mr-10
   rounded-lg
-  w-3/4
   bg-slate-200
   dark:bg-zinc-800"
 >
