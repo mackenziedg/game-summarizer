@@ -3,11 +3,25 @@
   import GameSummary from "./GameSummary.svelte";
   import type { PageServerData } from "./$types";
 
+  let carousel;
+
   export let data: PageServerData;
 
   let date = new Date();
   date.setDate(date.getDate() - 1);
   const yesterday = date.toLocaleString().split(", ")[0];
+
+  function onKeyDown(e) {
+    console.log(e.keyCode);
+    switch (e.keyCode) {
+      case 37:
+        carousel.goToPrev();
+        break;
+      case 39:
+        carousel.goToNext();
+        break;
+    }
+  }
 </script>
 
 <div class="flex-col p-10">
@@ -22,7 +36,7 @@
 
   <div class="mt-4">
     {#await data then d}
-      <Carousel>
+      <Carousel bind:this={carousel} duration={250}>
         {#each d.summaries as summary}
           {#await summary then s}
             <GameSummary summary={s} />
@@ -32,3 +46,4 @@
     {/await}
   </div>
 </div>
+<svelte:window on:keydown={onKeyDown} />
