@@ -25,7 +25,6 @@
   </div>
 
   <div class="flex justify-between">
-
     <div id="away-team-logo" class="hidden lg:block">
       <TeamLogo city={summary.away_team_city} name={summary.away_team_name} />
     </div>
@@ -34,10 +33,14 @@
       <h3 class="text-xs lg:text-base text-center sixtyfour {away_team_style}">
         {summary.away_team_city}
       </h3>
-      <h1 class="text-xl lg:text-3xl text-center jersey-20-regular {away_team_style}">
+      <h1
+        class="text-xl lg:text-3xl text-center jersey-20-regular {away_team_style}"
+      >
         {summary.away_team_name}
       </h1>
-      <h3 class="text-xl lg:text-4xl text-center jersey-20-regular {away_team_style}">
+      <h3
+        class="text-xl lg:text-4xl text-center jersey-20-regular {away_team_style}"
+      >
         {away_team_score}
       </h3>
     </div>
@@ -50,10 +53,14 @@
       <h3 class="text-xs lg:text-base text-center sixtyfour {home_team_style}">
         {summary.home_team_city}
       </h3>
-      <h1 class="text-xl lg:text-3xl text-center jersey-20-regular {home_team_style}">
+      <h1
+        class="text-xl lg:text-3xl text-center jersey-20-regular {home_team_style}"
+      >
         {summary.home_team_name}
       </h1>
-      <h3 class="text-xl lg:text-4xl text-center jersey-20-regular {home_team_style}">
+      <h3
+        class="text-xl lg:text-4xl text-center jersey-20-regular {home_team_style}"
+      >
         {home_team_score}
       </h3>
     </div>
@@ -64,5 +71,4 @@
   </div>
 
   <Boxscore boxscore={summary.boxscore} />
-
 </div>

@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {},
     fontFamily: {
-      'mono': ['Kode Mono'],
-    }
+      mono: ["Kode Mono"],
+    },
   },
   plugins: [],
 };
