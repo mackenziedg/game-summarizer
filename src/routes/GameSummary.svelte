@@ -6,14 +6,14 @@
 </script>
 
 <div class="p-2 lg:p-4">
-<div
-  class="
+  <div
+    class="
   pt-4 pb-4
   rounded-lg
   bg-zinc-200
   dark:bg-zinc-700"
->
-  <GameSummaryHeader {summary} />
-  <GameSummaryBody {summary} />
-</div>
+  >
+    <GameSummaryHeader {summary} />
+    <GameSummaryBody {summary} />
+  </div>
 </div>

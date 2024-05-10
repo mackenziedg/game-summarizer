@@ -7,10 +7,6 @@
 
   export let data: PageServerData;
 
-  let date = new Date();
-  date.setDate(date.getDate() - 1);
-  const yesterday = date.toLocaleString().split(", ")[0];
-
   function onKeyDown(e) {
     console.log(e.keyCode);
     switch (e.keyCode) {
@@ -31,13 +27,20 @@
 "
 >
   <header>
-    <a href="/about" class="float-right clear-both hover:text-orange-300 text-xs lg:text-sm"
-      >About</a
+    <a
+      href="/about"
+      class="float-right clear-both hover:text-orange-300 text-xs lg:text-sm"
     >
-    <h1 class="
+      About
+    </a>
+    <h1
+      class="
       text-center text-xl lg:text-3xl font-bold
-      ">
-      Game Summaries for {yesterday}
+      "
+    >
+      {#await data.summaries[0] then d}
+        Game Summaries for {d.date}
+      {/await}
     </h1>
   </header>
 
