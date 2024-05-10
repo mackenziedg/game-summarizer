@@ -30,9 +30,11 @@
 
     <p>
       See more on my <a
-        class="float-right clear-both hover:text-orange-300 jersey-20-regular"
-        href="https://github.com/mackenziedg/">GitHub</a
-      >.
+        class="hover:text-orange-300 jersey-20-regular"
+        href="https://github.com/mackenziedg/"
+      >
+        GitHub
+      </a>.
     </p>
   </div>
 </div>
