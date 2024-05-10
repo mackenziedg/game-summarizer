@@ -27,5 +27,12 @@
     <p>AI-generated summaries of yesterday's baseball games.</p>
 
     <p>New data loads in around 8:30 AM Eastern time.</p>
+
+    <p>
+      See more on my <a
+        class="float-right clear-both hover:text-orange-300 jersey-20-regular"
+        href="https://github.com/mackenziedg/">GitHub</a
+      >.
+    </p>
   </div>
 </div>
