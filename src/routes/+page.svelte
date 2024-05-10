@@ -21,7 +21,9 @@
 </script>
 
 <div
-  class="flex-col
+  class="
+    max-w-screen-lg
+    flex-col
     px-2
     py-3
     lg:px-10
