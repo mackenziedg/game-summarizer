@@ -1,15 +1,19 @@
 <script lang="ts">
+  import Boxscore from "./Boxscore.svelte";
+
   export let summary;
+
   const away_team_score = summary.boxscore[1][summary.boxscore[1].length - 3];
   const home_team_score = summary.boxscore[2][summary.boxscore[2].length - 3];
-  const home_team_weight =
-    home_team_score > away_team_score ? "font-extrabold" : "font-normal";
-  const away_team_weight =
-    away_team_score > home_team_score ? "font-extrabold" : "font-normal";
+
+  const home_team_style =
+    home_team_score > away_team_score ? "" : "text-zinc-500 dark:text-zinc-400";
+  const away_team_style =
+    away_team_score > home_team_score ? "" : "text-zinc-500 dark:text-zinc-400";
 </script>
 
 <div class="pl-8 pr-8 mb-4 flex-col">
-  <div class="flex justify-evenly">
+  <div class="flex justify-between">
     <div id="away-team-logo">
       <img
         src="/logos/{summary.away_team_name}.png"
@@ -21,25 +25,29 @@
       />
     </div>
     <div id="away-team-info">
-      <h3 class="lg:text-md text-sm text-center {away_team_weight}">
+      <h3 class="text-xs lg:text-base text-center sixtyfour {away_team_style}">
         {summary.away_team_city}
       </h3>
-      <h1 class="lg:text-2xl text-lg text-center {away_team_weight}">
+      <h1 class="text-xl lg:text-3xl text-center jersey-20-regular {away_team_style}">
         {summary.away_team_name}
       </h1>
-      <h3 class="lg:text-xl text-md text-center {away_team_weight}">
+      <h3 class="text-xl lg:text-4xl text-center jersey-20-regular {away_team_style}">
         {away_team_score}
       </h3>
     </div>
 
+    <div class="text-2xl lg:text-6xl jersey-20-regular text-center self-center">
+      @
+    </div>
+
     <div id="home-team-info">
-      <h3 class="lg:text-md text-sm text-center {home_team_weight}">
+      <h3 class="text-xs lg:text-base text-center sixtyfour {home_team_style}">
         {summary.home_team_city}
       </h3>
-      <h1 class="lg:text-2xl text-lg text-center {home_team_weight}">
+      <h1 class="text-xl lg:text-3xl text-center jersey-20-regular {home_team_style}">
         {summary.home_team_name}
       </h1>
-      <h3 class="lg:text-xl text-md text-center {home_team_weight}">
+      <h3 class="text-xl lg:text-4xl text-center jersey-20-regular {home_team_style}">
         {home_team_score}
       </h3>
     </div>
@@ -55,40 +63,6 @@
     </div>
   </div>
 
-  <div class="overflow-x-auto">
-    <table class="m-auto text-xs lg:text-base text-center mt-4">
-      <thead>
-        <tr>
-          <th></th>
-          {#each summary.boxscore[0].slice(1) as cell}
-            <th class="min-w-5 lg:min-w-7"> {cell} </th>
-          {/each}
-        </tr>
-      </thead>
+  <Boxscore boxscore={summary.boxscore} />
 
-      <tbody>
-        <tr>
-          <td>
-            <span class="hidden lg:block">
-              {summary.boxscore[1][0]}
-            </span>
-          </td>
-          {#each summary.boxscore[1].slice(1) as cell}
-            <td> {cell} </td>
-          {/each}
-        </tr>
-
-        <tr>
-          <td>
-            <span class="hidden lg:block">
-              {summary.boxscore[2][0]}
-            </span>
-          </td>
-          {#each summary.boxscore[2].slice(1) as cell}
-            <td> {cell} </td>
-          {/each}
-        </tr></tbody
-      >
-    </table>
-  </div>
 </div>

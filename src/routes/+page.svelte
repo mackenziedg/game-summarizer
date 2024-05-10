@@ -22,20 +22,22 @@
 
 <div
   class="flex-col
-    p-2
-    lg:p-10
+    px-2
+    py-3
+    lg:px-10
+    lg:py-6
 "
 >
   <header>
     <a
       href="/about"
-      class="float-right clear-both hover:text-orange-300 text-xs lg:text-sm"
+      class="float-right clear-both hover:text-orange-300 jersey-20-regular text-md lg:text-lg"
     >
       About
     </a>
     <h1
       class="
-      text-center text-xl lg:text-3xl font-bold
+      text-center text-xl lg:text-3xl sixtyfour
       "
     >
       {#await data.summaries[0] then d}
