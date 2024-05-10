@@ -5,6 +5,7 @@
   export let summary;
 </script>
 
+<div class="p-2 lg:p-4">
 <div
   class="
   pt-4 pb-4
@@ -14,4 +15,5 @@
 >
   <GameSummaryHeader {summary} />
   <GameSummaryBody {summary} />
+</div>
 </div>
