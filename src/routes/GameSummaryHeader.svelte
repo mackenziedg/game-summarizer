@@ -54,12 +54,12 @@
   </div>
 
   <div class="overflow-x-auto">
-  <table class="m-auto text-xs lg:text-md text-center mt-4">
+  <table class="m-auto text-xs lg:text-base text-center mt-4">
     <thead>
       <tr>
         <th></th>
         {#each summary.boxscore[0].slice(1) as cell}
-          <th class="min-w-7"> {cell} </th>
+          <th class="min-w-5 lg:min-w-7"> {cell} </th>
         {/each}
       </tr>
     </thead>
