@@ -16,7 +16,7 @@
     <tbody>
       <tr>
         <td>
-          <span class="hidden lg:block jersey-20-regular">
+          <span class="hidden lg:block xl:text-lg jersey-20-regular">
             {boxscore[1][0]}
           </span>
         </td>
@@ -27,7 +27,7 @@
 
       <tr>
         <td>
-          <span class="hidden lg:block jersey-20-regular">
+          <span class="hidden lg:block xl:text-lg  jersey-20-regular">
             {boxscore[2][0]}
           </span>
         </td>

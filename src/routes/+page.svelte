@@ -22,7 +22,8 @@
 
 <div
   class="
-    max-w-screen-lg
+    m-auto
+    max-w-screen-xl
     flex-col
     px-2
     py-3
