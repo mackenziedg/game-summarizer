@@ -31,7 +31,7 @@
   <header>
     <a
       href="/about"
-      class="float-right clear-both hover:text-orange-300 jersey-20-regular text-md lg:text-lg"
+      class="mt-8 lg:mt-0 float-right clear-both hover:text-orange-300 jersey-20-regular text-md lg:text-lg"
     >
       About
     </a>
