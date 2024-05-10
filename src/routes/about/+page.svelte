@@ -3,6 +3,7 @@
     m-auto
     max-w-screen-xl
     flex-col p-10
+    drop-shadow-lg
 "
 >
   <a
