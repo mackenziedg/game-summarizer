@@ -54,7 +54,7 @@
   </div>
 
   <div class="overflow-x-auto">
-  <table class="m-auto text-sm lg:text-md text-center mt-4">
+  <table class="m-auto text-xs lg:text-md text-center mt-4">
     <thead>
       <tr>
         <th></th>
