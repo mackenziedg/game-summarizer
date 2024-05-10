@@ -24,12 +24,19 @@
   }
 </script>
 
-<div class="flex-col p-10">
+<div
+  class="flex-col
+    p-2
+    lg:p-10
+"
+>
   <header>
-    <a href="/about" class="float-right clear-both hover:text-orange-300"
+    <a href="/about" class="float-right clear-both hover:text-orange-300 text-xs lg:text-sm"
       >About</a
     >
-    <h1 class="text-center text-3xl font-bold">
+    <h1 class="
+      text-center text-xl lg:text-3xl font-bold
+      ">
       Game Summaries for {yesterday}
     </h1>
   </header>
