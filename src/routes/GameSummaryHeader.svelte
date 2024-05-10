@@ -1,5 +1,6 @@
 <script lang="ts">
   import Boxscore from "./Boxscore.svelte";
+  import TeamLogo from "./TeamLogo.svelte";
 
   export let summary;
 
@@ -12,18 +13,23 @@
     away_team_score > home_team_score ? "" : "text-zinc-500 dark:text-zinc-400";
 </script>
 
-<div class="pl-8 pr-8 mb-4 flex-col">
-  <div class="flex justify-between">
+<div class="mb-4 flex-col">
+  <div class="lg:hidden flex justify-between mx-6">
     <div id="away-team-logo">
-      <img
-        src="/logos/{summary.away_team_name}.png"
-        alt="{summary.away_team_city} {summary.away_team_name} logo"
-        class="float-left
-        lg:max-h-24 lg:max-w-24 lg:w-auto lg:h-auto
-        max-h-12 max-w-12
-        align-middle"
-      />
+      <TeamLogo city={summary.away_team_city} name={summary.away_team_name} />
     </div>
+
+    <div id="home-team-logo">
+      <TeamLogo city={summary.home_team_city} name={summary.home_team_name} />
+    </div>
+  </div>
+
+  <div class="flex justify-between">
+
+    <div id="away-team-logo" class="hidden lg:block">
+      <TeamLogo city={summary.away_team_city} name={summary.away_team_name} />
+    </div>
+
     <div id="away-team-info">
       <h3 class="text-xs lg:text-base text-center sixtyfour {away_team_style}">
         {summary.away_team_city}
@@ -51,15 +57,9 @@
         {home_team_score}
       </h3>
     </div>
-    <div id="home-team-logo">
-      <img
-        src="/logos/{summary.home_team_name}.png"
-        alt="{summary.home_team_city} {summary.home_team_name} logo"
-        class="float-left
-        lg:max-h-24 lg:h-auto lg:max-w-24 lg:w-auto
-        max-h-12 h-auto max-w-12 w-auto
-        align-middle"
-      />
+
+    <div id="home-team-logo" class="hidden lg:block">
+      <TeamLogo city={summary.home_team_city} name={summary.home_team_name} />
     </div>
   </div>
 
