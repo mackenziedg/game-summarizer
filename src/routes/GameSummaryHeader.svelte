@@ -30,16 +30,18 @@
     </div>
 
     <div id="away-team-info">
-      <h3 class="text-xs lg:text-base text-center sixtyfour {away_team_style}">
+      <h3
+        class="text-xs lg:text-base xl:text-xl text-center sixtyfour {away_team_style}"
+      >
         {summary.away_team_city}
       </h3>
       <h1
-        class="text-xl lg:text-3xl text-center jersey-20-regular {away_team_style}"
+        class="text-xl lg:text-3xl xl:text-5xl text-center jersey-20-regular {away_team_style}"
       >
         {summary.away_team_name}
       </h1>
       <h3
-        class="text-xl lg:text-4xl text-center jersey-20-regular {away_team_style}"
+        class="text-xl lg:text-4xl xl:text-5xl text-center jersey-20-regular {away_team_style}"
       >
         {away_team_score}
       </h3>
@@ -50,16 +52,18 @@
     </div>
 
     <div id="home-team-info">
-      <h3 class="text-xs lg:text-base text-center sixtyfour {home_team_style}">
+      <h3
+        class="text-xs lg:text-base xl:text-xl text-center sixtyfour {home_team_style}"
+      >
         {summary.home_team_city}
       </h3>
       <h1
-        class="text-xl lg:text-3xl text-center jersey-20-regular {home_team_style}"
+        class="text-xl lg:text-3xl xl:text-5xl text-center jersey-20-regular {home_team_style}"
       >
         {summary.home_team_name}
       </h1>
       <h3
-        class="text-xl lg:text-4xl text-center jersey-20-regular {home_team_style}"
+        class="text-xl lg:text-4xl xl:text-5xl text-center jersey-20-regular {home_team_style}"
       >
         {home_team_score}
       </h3>

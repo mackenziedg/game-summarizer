@@ -3,7 +3,9 @@
 </script>
 
 <div class="overflow-x-auto">
-  <table class="m-auto text-xs lg:text-base text-center mt-4 font-mono">
+  <table
+    class="m-auto text-xs lg:text-base xl:text-xl text-center mt-4 font-mono"
+  >
     <thead>
       <tr>
         <th></th>
@@ -16,7 +18,7 @@
     <tbody>
       <tr>
         <td>
-          <span class="hidden lg:block xl:text-lg jersey-20-regular">
+          <span class="hidden lg:block xl:text-2xl jersey-20-regular">
             {boxscore[1][0]}
           </span>
         </td>
@@ -27,7 +29,7 @@
 
       <tr>
         <td>
-          <span class="hidden lg:block xl:text-lg jersey-20-regular">
+          <span class="hidden lg:block xl:text-2xl jersey-20-regular">
             {boxscore[2][0]}
           </span>
         </td>

@@ -2,7 +2,7 @@
   export let summary;
 </script>
 
-<div class="px-4 lg:px-8 mt-4 lg:text-md text-sm inconsolata">
+<div class="px-4 lg:px-8 mt-4 text-sm lg:text-base xl:text-lg inconsolata">
   <p>
     {@html summary.summary.replace("\n", "<br/><br/>")}
   </p>
