@@ -9,7 +9,7 @@
     <thead>
       <tr>
         <th></th>
-        {#each boxscore[0].slice(1) as cell}
+        {#each boxscore.header as cell}
           <th class="min-w-5 lg:min-w-7"> {cell} </th>
         {/each}
       </tr>
@@ -19,10 +19,10 @@
       <tr>
         <td>
           <span class="hidden lg:block xl:text-2xl jersey-20-regular">
-            {boxscore[1][0]}
+            {boxscore.away[0]}
           </span>
         </td>
-        {#each boxscore[1].slice(1) as cell}
+        {#each boxscore.away.slice(1) as cell}
           <td> {cell} </td>
         {/each}
       </tr>
@@ -30,10 +30,10 @@
       <tr>
         <td>
           <span class="hidden lg:block xl:text-2xl jersey-20-regular">
-            {boxscore[2][0]}
+            {boxscore.home[0]}
           </span>
         </td>
-        {#each boxscore[2].slice(1) as cell}
+        {#each boxscore.home.slice(1) as cell}
           <td> {cell} </td>
         {/each}
       </tr></tbody
