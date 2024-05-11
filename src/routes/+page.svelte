@@ -6,9 +6,9 @@
   let carousel;
 
   export let data: PageServerData;
+  const summaries = data.summaries;
 
   function onKeyDown(e) {
-    console.log(e.keyCode);
     switch (e.keyCode) {
       case 37:
         carousel.goToPrev();
@@ -46,22 +46,16 @@
       text-center text-xl lg:text-3xl sixtyfour
       "
     >
-      {#await data.summaries[0] then d}
-        Game Summaries for {d.date}
-      {/await}
+      Game Summaries for {summaries[0].date}
     </h1>
   </header>
 
   <div class="mt-4">
-    {#await data then d}
-      <Carousel bind:this={carousel} duration={250}>
-        {#each d.summaries as summary}
-          {#await summary then s}
-            <GameSummary summary={s} />
-          {/await}
-        {/each}
-      </Carousel>
-    {/await}
+    <Carousel bind:this={carousel} duration={250}>
+      {#each summaries as summary}
+        <GameSummary {summary} />
+      {/each}
+    </Carousel>
   </div>
 </div>
 <svelte:window on:keydown={onKeyDown} />

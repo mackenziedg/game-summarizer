@@ -3,9 +3,18 @@
   import TeamLogo from "./TeamLogo.svelte";
 
   export let summary;
+  const parseBoxscore = (boxscoreText: string) => {
+    const lines = boxscoreText.split("\n").map((l) => l.split("|").slice(1));
+    return {
+      header: lines[0].slice(1),
+      away: lines[1],
+      home: lines[2],
+    };
+  };
+  const boxscore = parseBoxscore(summary.boxscore);
 
-  const away_team_score = summary.boxscore[1][summary.boxscore[1].length - 3];
-  const home_team_score = summary.boxscore[2][summary.boxscore[2].length - 3];
+  const away_team_score = parseInt(boxscore.away[boxscore.away.length - 3]);
+  const home_team_score = parseInt(boxscore.home[boxscore.home.length - 3]);
 
   const home_team_style =
     home_team_score > away_team_score ? "" : "text-zinc-500 dark:text-zinc-400";
@@ -74,5 +83,5 @@
     </div>
   </div>
 
-  <Boxscore boxscore={summary.boxscore} />
+  <Boxscore {boxscore} />
 </div>
