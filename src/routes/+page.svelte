@@ -50,7 +50,15 @@
     </h1>
   </header>
 
-  <div class="mt-4">
+  <div class="mt-4 block lg:hidden">
+    <Carousel bind:this={carousel} duration={250} arrows={false}>
+      {#each summaries as summary}
+        <GameSummary {summary} />
+      {/each}
+    </Carousel>
+  </div>
+
+  <div class="mt-4 hidden lg:block">
     <Carousel bind:this={carousel} duration={250}>
       {#each summaries as summary}
         <GameSummary {summary} />
