@@ -7,7 +7,7 @@ const getFiles: Array<Object> = () => {
   const mostRecentDate: string = files
     .filter((f) => f[0] !== ".")
     .map((f) => f.split("_")[0])
-    .reduce((min, v) => (v < min ? v : min));
+    .reduce((max, v) => (v > max ? v : max));
 
   return files
     .filter((f) => f.split("_")[0] == mostRecentDate)
