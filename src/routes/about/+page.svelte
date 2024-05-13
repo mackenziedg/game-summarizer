@@ -16,7 +16,9 @@
     Back
   </a>
 
-  <h1 class="text-center text-xl lg:text-3xl xl:text-5xl sixtyfour">About</h1>
+  <h1 class="text-center text-xl lg:text-3xl xl:text-5xl sixtyfour">
+    About CarabinAI
+  </h1>
 
   <div
     class="
